@@ -5,13 +5,15 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: dustin-te-ds
+    name: dustin-te-ds
   ports:
     - port: 49152
       name: "thousandeyes-1"
       targetPort: 49152
+      protocol: "TCP"
       nodePort: 32152
     - port: 49153
       name: "thousandeyes-2"
       targetPort: 49153
+      protocol: "TCP"
       nodePort: 32153
