@@ -28,6 +28,6 @@ spec:
           command: ["/sbin/my_init"]
           env:
           - name: TEAGENT_ACCOUNT_TOKEN
-            value: "ptxn31jzm8lc8rbu5drgkltsd8f5ixlv"
+            value: "<YOUR_ACCOUNT_TOKEN>"
           - name: TEAGENT_INET
             value: "4"
