@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: dustin-te-ds
+  labels:
+    app: dustin-te-ds
+spec:
+  selector:
+    matchLabels:
+      name: dustin-te-ds
+  template:
+    metadata:
+      labels:
+        name: dustin-te-ds
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+        - resources:
+            requests:
+              cpu: 0.1
+              memory: 2000Mi
+          securityContext:
+            privileged: true
+          image: thousandeyes/enterprise-agent:latest
+          name: dustin-te-ds
+          command: ["/sbin/my_init"]
+          env:
+          - name: TEAGENT_ACCOUNT_TOKEN
+            value: "ptxn31jzm8lc8rbu5drgkltsd8f5ixlv"
+          - name: TEAGENT_INET
+            value: "4"
